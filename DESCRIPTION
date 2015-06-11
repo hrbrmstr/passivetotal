@@ -1,0 +1,18 @@
+Package: passivetotal
+Type: Package
+Title: Tools For Working With PassiveTotal API
+Version: 0.1.0
+Date: 2015-06-10
+Author: Bob Rudis (@hrbrmstr)
+Maintainer: Bob Rudis <bob@rudis.net>
+Description: Useful tools for working with the PassiveTotal API
+URL: http://github.com/hrbrmstr/passivetotal
+License: MIT + file LICENSE
+Suggests:
+    testthat
+Depends:
+    R (>= 3.0.0),
+    dplyr
+Imports:
+    httr,
+    stringr

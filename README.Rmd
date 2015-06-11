@@ -1,0 +1,71 @@
+---
+title: "README"
+author: "Bob Rudis"
+date: June 10, 2015
+output:
+  md_document:
+    variant: markdown_github
+---
+
+passivetotal is an R package to interface with the [PassiveTotal API](https://www.passivetotal.org/api/docs)
+
+The following functions are implemented:
+
+- `add_tag` : function (domain_or_ip, tag)  
+- `get_classification` : function (domain_or_ip)  
+- `get_metadata` : function (domain_or_ip)  
+- `get_passive` : function (domain_or_ip)  
+- `get_subdomains` : function (domain)  
+- `get_tags` : function (domain_or_ip)  
+- `get_unique` : function (domain_or_ip)  
+- `is_dynamic_associated` : function (domain)  
+- `is_on_watchlist` : function (domain_or_ip)  
+- `is_sinkhole` : function (ip)  
+- `passive_api_key` : function (force = FALSE)  
+- `remove_tag` : function (domain_or_ip, tag)  
+- `set_classification` : function (domain_or_ip, classification)  
+- `set_compromised` : function (domain_or_ip, is_compromised)  
+- `set_dynamic_associated` : function (domain_or_ip, is_dynamic)  
+- `set_sinkhole` : function (domain_or_ip, is_sinkhole)  
+- `set_watching` : function (domain_or_ip, is_watching)  
+- `was_ever_compromised` : function (domain_or_ip)
+
+### News
+
+- Version 0.1.0 released
+
+### Installation
+
+```{r eval=FALSE}
+devtools::install_github("hrbrmstr/passivetotal")
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+options(width=120)
+```
+
+### Usage
+
+```{r}
+library(passivetotal)
+
+# current verison
+packageVersion("passivetotal")
+
+get_metadata("www.passivetotal.com")
+
+get_passive("107.170.89.121")
+
+```
+
+### Test Results
+
+```{r}
+library(passivetotal)
+library(testthat)
+
+date()
+
+test_dir("tests/")
+```
+
