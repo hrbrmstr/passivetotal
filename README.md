@@ -2,28 +2,29 @@ passivetotal is an R package to interface with the [PassiveTotal API](https://ww
 
 The following functions are implemented:
 
--   `add_tag` : function (domain\_or\_ip, tag)
--   `get_classification` : function (domain\_or\_ip)
--   `get_metadata` : function (domain\_or\_ip)
--   `get_passive` : function (domain\_or\_ip)
--   `get_subdomains` : function (domain)
--   `get_tags` : function (domain\_or\_ip)
--   `get_unique` : function (domain\_or\_ip)
--   `is_dynamic_associated` : function (domain)
--   `is_on_watchlist` : function (domain\_or\_ip)
--   `is_sinkhole` : function (ip)
--   `passive_api_key` : function (force = FALSE)
--   `remove_tag` : function (domain\_or\_ip, tag)
--   `set_classification` : function (domain\_or\_ip, classification)
--   `set_compromised` : function (domain\_or\_ip, is\_compromised)
--   `set_dynamic_associated` : function (domain\_or\_ip, is\_dynamic)
--   `set_sinkhole` : function (domain\_or\_ip, is\_sinkhole)
--   `set_watching` : function (domain\_or\_ip, is\_watching)
--   `was_ever_compromised` : function (domain\_or\_ip)
+-   `add_tag` : Add a tag to a domain name or IP address
+-   `get_classification` : Get classification for a domain or IP address
+-   `get_metadata` : Get metadata about a domain or IP address
+-   `get_passive` : Get dynamic status of domain
+-   `get_subdomains` : Get subdomains for a domain
+-   `get_tags` : Get user tags for a domain or IP address
+-   `get_unique` : Get unique resolution information including frequency count
+-   `is_dynamic_associated` : Get whether a domain is associated with a dynamic DNS provider
+-   `is_on_watchlist` : Get watch status for a domain or IP address
+-   `is_sinkhole` : Check sinkhole status of an IP address
+-   `passive_api_key` : Get or set `PASSIVETOTAL_API_KEY` value
+-   `remove_tag` : Remove a tag fgrom a domain name or IP address
+-   `set_classification` : Set a classification for a domain or IP address
+-   `set_compromised` : Set `ever_compromised` status for a domain or IP address
+-   `set_dynamic_associated` : Set dynamic status of domain
+-   `set_sinkhole` : Set sinkhole status of IP address
+-   `set_watching` : Set watch status for a domain
+-   `was_ever_compromised` : Get whether a site was ever compromised
 
 ### News
 
 -   Version 0.1.0 released
+-   Version 0.1.1 released : completed documentation; tested with `--as-cran` and fixed errors & warnings
 
 ### Installation
 
@@ -54,7 +55,7 @@ library(passivetotal)
 packageVersion("passivetotal")
 ```
 
-    ## [1] '0.1.0'
+    ## [1] '0.1.1'
 
 ``` r
 get_metadata("www.passivetotal.com")
@@ -95,7 +96,7 @@ get_passive("107.170.89.121")
     ## [1] "dnsres"      "virustotal"  "mnemonic"    "domaintools" "pingly"      "kaspersky"   "alienvault" 
     ## 
     ## $records
-    ## Source: local data frame [108 x 5]
+    ## Source: local data frame [120 x 5]
     ## 
     ##       source          resolve           last_seen          first_seen
     ## 1  kaspersky passivetotal.org 2015-06-01 04:42:47 2014-07-08 14:22:46
@@ -113,10 +114,10 @@ get_passive("107.170.89.121")
     ## 
     ## $unique_resolutions
     ##                 domain  n
-    ## 1 www.passivetotal.org 23
-    ## 2 www.passivetotal.com 16
-    ## 3     passivetotal.com 31
-    ## 4     passivetotal.org 38
+    ## 1 www.passivetotal.org 22
+    ## 2 www.passivetotal.com 19
+    ## 3     passivetotal.com 38
+    ## 4     passivetotal.org 41
     ## 
     ## $basic_map
     ## Source: local data frame [4 x 7]
@@ -252,7 +253,7 @@ library(testthat)
 date()
 ```
 
-    ## [1] "Wed Jun 10 22:50:35 2015"
+    ## [1] "Sun Jun 14 20:41:38 2015"
 
 ``` r
 test_dir("tests/")

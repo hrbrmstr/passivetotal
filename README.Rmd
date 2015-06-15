@@ -1,7 +1,7 @@
 ---
 title: "README"
 author: "Bob Rudis"
-date: June 10, 2015
+date: "`r Sys.Date()`"
 output:
   md_document:
     variant: markdown_github
@@ -11,28 +11,29 @@ passivetotal is an R package to interface with the [PassiveTotal API](https://ww
 
 The following functions are implemented:
 
-- `add_tag` : function (domain_or_ip, tag)  
-- `get_classification` : function (domain_or_ip)  
-- `get_metadata` : function (domain_or_ip)  
-- `get_passive` : function (domain_or_ip)  
-- `get_subdomains` : function (domain)  
-- `get_tags` : function (domain_or_ip)  
-- `get_unique` : function (domain_or_ip)  
-- `is_dynamic_associated` : function (domain)  
-- `is_on_watchlist` : function (domain_or_ip)  
-- `is_sinkhole` : function (ip)  
-- `passive_api_key` : function (force = FALSE)  
-- `remove_tag` : function (domain_or_ip, tag)  
-- `set_classification` : function (domain_or_ip, classification)  
-- `set_compromised` : function (domain_or_ip, is_compromised)  
-- `set_dynamic_associated` : function (domain_or_ip, is_dynamic)  
-- `set_sinkhole` : function (domain_or_ip, is_sinkhole)  
-- `set_watching` : function (domain_or_ip, is_watching)  
-- `was_ever_compromised` : function (domain_or_ip)
+- `add_tag` :	Add a tag to a domain name or IP address
+- `get_classification` :	Get classification for a domain or IP address
+- `get_metadata` :	Get metadata about a domain or IP address
+- `get_passive` :	Get dynamic status of domain
+- `get_subdomains` :	Get subdomains for a domain
+- `get_tags` :	Get user tags for a domain or IP address
+- `get_unique` :	Get unique resolution information including frequency count
+- `is_dynamic_associated` :	Get whether a domain is associated with a dynamic DNS provider
+- `is_on_watchlist` :	Get watch status for a domain or IP address
+- `is_sinkhole` :	Check sinkhole status of an IP address
+- `passive_api_key` :	Get or set `PASSIVETOTAL_API_KEY` value
+- `remove_tag` :	Remove a tag fgrom a domain name or IP address
+- `set_classification` :	Set a classification for a domain or IP address
+- `set_compromised` :	Set `ever_compromised` status for a domain or IP address
+- `set_dynamic_associated` :	Set dynamic status of domain
+- `set_sinkhole` :	Set sinkhole status of IP address
+- `set_watching` :	Set watch status for a domain
+- `was_ever_compromised` :	Get whether a site was ever compromised
 
 ### News
 
 - Version 0.1.0 released
+- Version 0.1.1 released : completed documentation; tested with `--as-cran` and fixed errors & warnings
 
 ### Installation
 
