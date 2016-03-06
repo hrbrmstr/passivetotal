@@ -9,7 +9,7 @@ account_notifications(type = NULL, auth = passive_auth())
 \arguments{
 \item{type}{optional Type of notifications to get back.}
 
-\item{Account}{functions}
+\item{auth}{\code{list} containing PassiveTotal \code{user} & \code{key}}
 }
 \value{
 \code{tbl_df} of account notifications details
@@ -17,7 +17,19 @@ account_notifications(type = NULL, auth = passive_auth())
 \description{
 Get notifications that have been posted to your account.
 }
+\note{
+All API function in the \code{passivetotal} pacake use \code{memoise::memoise} to
+      cache results. Call \code{forget(account_notifications)} to invalidate the cache for this
+      function.
+}
 \references{
 \url{https://api.passivetotal.org/api/docs/#api-Account-GetV2AccountNotifications}
+}
+\seealso{
+Other Account functions: \code{\link{account_history}},
+  \code{\link{account_info}},
+  \code{\link{account_organization}},
+  \code{\link{account_sources}},
+  \code{\link{account_teamstream}}
 }
 

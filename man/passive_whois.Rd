@@ -10,12 +10,19 @@ passive_whois(query, compact = TRUE, auth = passive_auth())
 \item{query}{Query value to use in your request.}
 
 \item{compact}{Compress the WHOIS record into a deduplicated format.}
+
+\item{auth}{\code{list} containing PassiveTotal \code{user} & \code{key}}
 }
 \value{
 \code{list}
 }
 \description{
 Get WHOIS data for a domain or IP address
+}
+\note{
+All API function in the \code{passivetotal} pacake use \code{memoise::memoise} to
+      cache results. Call \code{forget(passive_whois)} to invalidate the cache for this
+      function.
 }
 \examples{
 \dontrun{

@@ -8,6 +8,10 @@ This has BREAKNG CHANGES since it now only works with version 2 of the API.
 
 You should set `PASSIVETOTAL_USER` & `PASSIVETOTAL_API_KEY` in `.Renviron` or you'll either be prompted for them or will need to pass them to each function manually.
 
+NOTE that all the API functions are wrapped with `memoise::meomoise`, meaning that
+they cache results. Use the `forget` function to clear the cache for any given
+function.
+
 The following functions are implemented:
 
 - `account_history`: Get history associated with your account.
@@ -46,6 +50,41 @@ The following functions are implemented:
 
 ```{r eval=FALSE}
 devtools::install_github("hrbrmstr/passivetotal")
+```
+```{r message=FALSE, eval=FALSE}
+library(passivetotal)
+library(dplyr)
+library(jsonlite)
+
+is_fqdn("rud.is") 
+is_ipv4("10.10.10.10")
+
+toJSON(passive_classification("passivetotal.org"), pretty=TRUE)
+
+tbl_df(passive_dns("passivetotal.org")$results)
+toJSON(passive_subdomains("*.passivetotal.org"), pretty=TRUE)
+toJSON(passive_unique("passivetotal.org"), pretty=TRUE)
+
+passive_host("passivetotal.org") 
+passive_malware("xxxmobiletubez.com")
+passive_osint("xxxmobiletubez.com") 
+toJSON(passive_enrich("passivetotal.org"), pretty=TRUE)
+
+toJSON(passive_ssl_certificate("e9a6647d6aba52dc47b3838c920c9ee59bad7034"), pretty=TRUE)
+toJSON(passive_ssl_history("52.8.228.23"), pretty=TRUE)
+toJSON(passive_ssl_search(query="www.passivetotal.org", field="subjectCommonName"), pretty=TRUE)
+
+passive_status("passivetotal.org", "compromised")
+passive_status("passivetotal.org", "dynamic")
+passive_status("passivetotal.org", "monitor")
+passive_status("52.8.228.23", "sinkhole")
+passive_status("52.8.228.23", "s") 
+
+passive_tracker_search(query="UA-61048133", type="GoogleAnalyticsAccountNumber") 
+passive_tracker("passivetotal.org")
+
+toJSON(passive_whois("passivetotal.org"), pretty=TRUE)
+passive_whois_search(query="domains@riskiq.com", field="email") 
 ```
 
 ### Code of Conduct

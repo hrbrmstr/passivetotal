@@ -7,9 +7,7 @@
 account_organization(auth = passive_auth())
 }
 \arguments{
-\item{type}{optional Type of notifications to get back.}
-
-\item{Account}{functions}
+\item{auth}{\code{list} containing PassiveTotal \code{user} & \code{key}}
 }
 \value{
 \code{list} of account organization details
@@ -17,7 +15,19 @@ account_organization(auth = passive_auth())
 \description{
 Get details about the organization your account is associated with.
 }
+\note{
+All API function in the \code{passivetotal} pacake use \code{memoise::memoise} to
+      cache results. Call \code{forget(account_organization)} to invalidate the cache for this
+      function.
+}
 \references{
 \url{https://api.passivetotal.org/api/docs/#api-Account-GetV2AccountOrganization}
+}
+\seealso{
+Other Account functions: \code{\link{account_history}},
+  \code{\link{account_info}},
+  \code{\link{account_notifications}},
+  \code{\link{account_sources}},
+  \code{\link{account_teamstream}}
 }
 

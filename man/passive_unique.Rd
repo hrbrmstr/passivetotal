@@ -22,12 +22,19 @@ passive_unique(query, direction = c("", "next", "previous"), page = NULL,
 \item{end}{optional Only show data up to date: \code{YYYY-mm-dd}}
 
 \item{timeout}{optional Timeout to use on all source requests}
+
+\item{auth}{\code{list} containing PassiveTotal \code{user} & \code{key}}
 }
 \value{
 \code{list}
 }
 \description{
 Get unique resolutions from passive DNS data
+}
+\note{
+All API function in the \code{passivetotal} pacake use \code{memoise::memoise} to
+      cache results. Call \code{forget(passive_unique)} to invalidate the cache for this
+      function.
 }
 \examples{
 \dontrun{

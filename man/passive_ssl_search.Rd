@@ -22,12 +22,19 @@ passive_ssl_search(query, field, auth = passive_auth())
 \code{subjectLocalityName}, \code{issuerStreetAddress},
 \code{issuerLocalityName}, \code{subjectGivenName}, \code{subjectProvince},
 \code{issuerSerialNumber}, \code{issuerEmailAddress}}
+
+\item{auth}{\code{list} containing PassiveTotal \code{user} & \code{key}}
 }
 \value{
 \code{list}
 }
 \description{
 Get the SSL certificate associated with the SHA-1.
+}
+\note{
+All API function in the \code{passivetotal} pacake use \code{memoise::memoise} to
+      cache results. Call \code{forget(passive_ssl_search)} to invalidate the cache for this
+      function.
 }
 \examples{
 \dontrun{

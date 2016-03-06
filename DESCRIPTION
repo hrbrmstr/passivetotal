@@ -20,5 +20,6 @@ Imports:
     stringr,
     purrr,
     dplyr,
-    jsonlite
+    jsonlite,
+    memoise
 RoxygenNote: 5.0.1

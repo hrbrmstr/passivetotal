@@ -24,12 +24,19 @@ is_dynamic(query, auth = passive_auth())
 \item{type}{status query type. \code{compromised} or \code{c},
 \code{dynamic} or \code{d}, \code{monitor} or \code{m},
 \code{sinkhole} or \code{s}}
+
+\item{auth}{\code{list} containing PassiveTotal \code{user} & \code{key}}
 }
 \value{
 \code{logical}
 }
 \description{
 Get the status of an observable
+}
+\note{
+All API function in the \code{passivetotal} pacake use \code{memoise::memoise} to
+      cache results. Call \code{forget(passive_status)} (etc.) to invalidate the
+      cache for this function.
 }
 \examples{
 \dontrun{

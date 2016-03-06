@@ -8,8 +8,6 @@ account_info(auth = passive_auth())
 }
 \arguments{
 \item{auth}{\code{list} containing PassiveTotal \code{user} & \code{key}}
-
-\item{Account}{functions}
 }
 \value{
 \code{tbl_df} of account details
@@ -17,7 +15,19 @@ account_info(auth = passive_auth())
 \description{
 Get account details your account.
 }
+\note{
+All API function in the \code{passivetotal} pacake use \code{memoise::memoise} to
+      cache results. Call \code{forget(account_info)} to invalidate the cache for this
+      function.
+}
 \references{
 \url{https://api.passivetotal.org/api/docs/#api-Account-GetV2Account}
+}
+\seealso{
+Other Account functions: \code{\link{account_history}},
+  \code{\link{account_notifications}},
+  \code{\link{account_organization}},
+  \code{\link{account_sources}},
+  \code{\link{account_teamstream}}
 }
 

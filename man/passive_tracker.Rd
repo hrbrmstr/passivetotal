@@ -8,12 +8,19 @@ passive_tracker(query, auth = passive_auth())
 }
 \arguments{
 \item{query}{Query value to use in your request.}
+
+\item{auth}{\code{list} containing PassiveTotal \code{user} & \code{key}}
 }
 \value{
-\code{list}
+\code{tbl_df}
 }
 \description{
 Get all tracking codes for a domain or IP address.
+}
+\note{
+All API function in the \code{passivetotal} pacake use \code{memoise::memoise} to
+      cache results. Call \code{forget(passive_tracker)} to invalidate the cache for this
+      function.
 }
 \examples{
 \dontrun{

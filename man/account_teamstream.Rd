@@ -18,8 +18,6 @@ account_teamstream(source = c("", "web", "api"), dt = NULL, type = c("",
 \item{focus}{optional Specific value that was used as the focus of the history.}
 
 \item{auth}{\code{list} containing PassiveTotal \code{user} & \code{key}}
-
-\item{Account}{functions}
 }
 \value{
 \code{tbl_df} of account teamstream details
@@ -27,7 +25,19 @@ account_teamstream(source = c("", "web", "api"), dt = NULL, type = c("",
 \description{
 Get the teamstream for the organization your account is associated with.
 }
+\note{
+All API function in the \code{passivetotal} pacake use \code{memoise::memoise} to
+      cache results. Call \code{forget(account_teamstream)} to invalidate the cache for this
+      function.
+}
 \references{
 \url{https://api.passivetotal.org/api/docs/#api-Account-GetV2AccountOrganizationTeamstream}
+}
+\seealso{
+Other Account functions: \code{\link{account_history}},
+  \code{\link{account_info}},
+  \code{\link{account_notifications}},
+  \code{\link{account_organization}},
+  \code{\link{account_sources}}
 }
 

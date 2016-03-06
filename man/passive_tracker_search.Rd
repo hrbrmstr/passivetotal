@@ -4,7 +4,7 @@
 \alias{passive_tracker_search}
 \title{Get hosts matching a specific tracker ID}
 \usage{
-passive_tracker_search(query, auth = passive_auth())
+passive_tracker_search(query, type, auth = passive_auth())
 }
 \arguments{
 \item{query}{Query value to use in your request.}
@@ -13,12 +13,19 @@ passive_tracker_search(query, auth = passive_auth())
 \code{YandexMetricaCounterId}, \code{ClickyId},
 \code{GoogleAnalyticsAccountNumber}, \code{NewRelicId}, \code{MixpanelId},
 \code{GoogleAnalyticsTrackingId}}
+
+\item{auth}{\code{list} containing PassiveTotal \code{user} & \code{key}}
 }
 \value{
-\code{list}
+\code{tbl_df}
 }
 \description{
 Get hosts matching a specific tracker ID
+}
+\note{
+All API function in the \code{passivetotal} pacake use \code{memoise::memoise} to
+      cache results. Call \code{forget(passive_tracker_search)} to invalidate the cache for this
+      function.
 }
 \examples{
 \dontrun{
